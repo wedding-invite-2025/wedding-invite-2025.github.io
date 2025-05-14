@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Свадебное приглашение</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: url('background.jpg') center/cover no-repeat fixed;
+      color: #fff;
+      animation: fadeInBody 3s ease-in;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 60px 20px;
+      min-height: 100vh;
+    }
+
+    .invitation {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 192, 203, 0.4);
+      text-align: center;
+      color: #333;
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #d46a92;
+      margin-bottom: 10px;
+    }
+
+    .names {
+      font-size: 2em;
+      font-weight: bold;
+      color: #8b004f;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-size: 1.5em;
+      color: #c34c85;
+      margin: 10px 0 10px 0;
+    }
+
+    .countdown-section {
+      margin-bottom: 30px;
+    }
+
+    .countdown-section h2 {
+      color: #b03268;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+
+    #countdown {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #8b004f;
+    }
+
+    .photo {
+      width: 100%;
+      height: 450px;
+      border-radius: 15px;
+      background: #eee;
+      margin: 30px 0;
+    }
+
+    .section {
+      margin: 30px 0;
+    }
+
+    .section h2 {
+      color: #b03268;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+
+    .schedule-item {
+      background: #ffe4ec;
+      color: #5c002e;
+      border-radius: 12px;
+      padding: 10px 20px;
+      margin: 10px auto;
+      max-width: 400px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .location {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: #8b004f;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" loop>
+    <source src="https://file.garden/aCOMiFtJdUeeq1Vy/Charlez%20Aznavour%20-%20She.mp3" type="audio/mpeg">
+    Ձեր զննարկիչը չի աջակցում ձայնին։
+  </audio>
+
+  <button onclick="toggleMusic()" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffd6e8;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: #8b004f;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(136, 0, 79, 0.1);
+  ">
+    🎵 Նվագարկել երաժշտությունը
+  </button>
+
+  <div class="overlay">
+    <div class="invitation">
+      <h1>Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին՝ միասին նշելու մեր սիրո և երջանկության օրը:</h1>
+      <div class="names"><p>Հարգանքով`<br><b>Ռուբեն և Մերի</b></p></div>
+      <div class="date">17 Օգոստոսի 2025 թ․</div>
+
+      <!-- Таймер под датой -->
+      <div class="countdown-section">
+        <h2>⏳ Մինչ հարսանիքը մնացել է</h2>
+        <div id="countdown"></div>
+      </div>
+
+      <div class="photo">
+        <img src="https://i.postimg.cc/QCCP1THM/398071983-4423147737911398-2983726759687224846-n.jpg"
+             style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 15px;">
+      </div>
+
+
+      <div class="photo">
+        <img src="https://i.postimg.cc/2j9gm2KL/493305200-4938936666332500-4972676581612835086-n.jpg"
+             style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 15px;">
+      </div>
+
+      <div class="section">
+        <h2>📅 Օրվա ծրագիր</h2>
+        <div class="schedule-item">12:30 — Հարսի տուն</div>
+        <div class="schedule-item">14:00 — Պսակադրություն</div>
+        <div class="schedule-item">17:00 — Հարսանեկան խնջույք</div>
+      </div>
+
+      <div class="section">
+        <h2>📍 Վայրեր</h2>
+        <p class="location">Պսակադրություն - Սուրբ Ամենափրկիչ եկեղեցի</p>
+        <div class="photo">
+          <img src="https://i.postimg.cc/d3ffBVyj/Holy-Saviour-Church-2021-09-03.jpg"
+               style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 15px;">
+        </div>
+        <p class="location">Հարսանեկան խնջույք - Իմպերիալ ռեստորան</p>
+        <div class="photo">
+          <img src="https://i.postimg.cc/76md5VPc/2.jpg"
+               style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 15px;">
+        </div>
+      </div>
+
+      <p>Մենք անհամբեր սպասում ենք ձեզ և հուսով ենք, որ դուք կկիսեք այս կարևոր օրը մեզ հետ: 💖</p>
+      <p>Սիրով`<br><b>Ռուբեն և Մերի</b></p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    const countdownElement = document.getElementById("countdown");
+    const weddingDate = new Date("2025-08-17T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        countdownElement.textContent = "Մեր հարսանիքն արդեն սկսվել է։ 🎉";
+        clearInterval(timer);
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const totalMinutes = Math.floor(diff / (1000 * 60));
+      const totalHours = Math.floor(diff / (1000 * 60 * 60));
+      const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+      countdownElement.innerHTML =
+        ` ${totalDays} օր` +
+        ` ${totalHours} ժամ` +
+        ` ${totalMinutes} րոպե` +
+        ` ${totalSeconds} վայրկյան`;
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
